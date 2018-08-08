@@ -7,15 +7,22 @@ class Timer extends Component {
     this.timer = React.createRef()
     this.state = {
         time: 0,
-        color: '#'+Math.floor(Math.random()*16777215).toString(16),
+        color: '#' + Math.floor(Math.random() * 16777215).toString(16),
     }
   }
 
+  componentDidUpdate() {
+    const newColor = '#' + Math.floor(Math.random() * 16777215).toString(16)
+    this.timer.current.style.color = newColor
+  }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.time === nextState.time) {
+      return false
+    }
 
-  //Your code here
-
-
+    return true
+  }
 
   componentDidMount() {
     this.interval = setInterval(this.clockTick, this.props.updateInterval*1000)
