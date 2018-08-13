@@ -17,6 +17,7 @@ class App extends Component {
 
   render() {
     console.log(this.state.timerIDs);
+    console.log(this.state.updateInterval);
     return (
       <div className="App">
         <header>
@@ -55,7 +56,7 @@ class App extends Component {
     }))
   }
 
-  updateIntervalSetting = increment => {
+  updateIntervalSetting = (increment) => {
     this.setState(prevState => {
       if (prevState.updateInterval + increment <= 1) return { updateInterval: 1 }
       return {
