@@ -13,9 +13,13 @@ class Timer extends Component {
 
 
 
-  //Your code here
+  componentDidUpdate() {
+    this.timer.current.style.color = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
+  }
 
-
+  shouldComponentUpdate(nextProps, nextState) {
+    return (this.state.time === nextState.time) ? false : true
+  }
 
   componentDidMount() {
     this.interval = setInterval(this.clockTick, this.props.updateInterval*1000)
