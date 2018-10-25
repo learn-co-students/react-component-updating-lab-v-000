@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.timerIDs);
+    //console.log(this.state.timerIDs);
     return (
       <div className="App">
         <header>
@@ -45,7 +45,20 @@ class App extends Component {
           id: Date.now()
         }
       ]
-    }))
+    }),console.log(this.state))
+
+    // Sample array of objects inserted in timeIDs
+    //  timerIDs: [
+    //    {
+    //      id: 1540484085050
+    //      updateInterval: 1
+    //    },
+    //    {
+    //      id: 1540484170404
+    //      updateInterval: 1
+    //    }
+    //    updateInterval: 2
+ 
   }
 
   // removeTimer updates state, removing any timer that matches the provided author
@@ -61,7 +74,7 @@ class App extends Component {
       return {
         updateInterval: prevState.updateInterval + increment
       }
-    })
+    }, console.log(this.state))
   }
 
 }
