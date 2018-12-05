@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Z_DEFAULT_STRATEGY } from 'zlib';
 
 class Timer extends Component {
 
@@ -14,7 +15,15 @@ class Timer extends Component {
 
 
   //Your code here
+  componentDidUpdate() {
+    this.timer.current.style.color = '#'+Math.floor(Math.random()*16777215).toString(16)  }
 
+  shouldComponentUpdate() {
+    if (this.state.time === nextState.time) {
+      return false
+    }
+    return true
+  }
 
 
   componentDidMount() {
