@@ -11,6 +11,7 @@ class App extends Component {
     timerIDs: []
   }
 
+  //componentDidMount calls a method to add one initial timer
   componentDidMount() {
     this.handleAddTimer()
   }
@@ -21,6 +22,7 @@ class App extends Component {
       <div className="App">
         <header>
           <h1>MultiTimer</h1>
+          // the updateInterval value is captured in an object for each Timer, allowing Timers to have differing intervals 
           <Controls updateIntervalSetting={this.updateIntervalSetting} updateInterval={this.state.updateInterval} handleAddTimer={this.handleAddTimer}/>
         </header>
         <div className="TimerGrid">
