@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Timer extends Component {
 
-  constructor() {
+  constructor() { // state contains "time" "color"; props contain ref for "timer"
     super()
     this.timer = React.createRef()
     this.state = {
@@ -11,19 +11,15 @@ class Timer extends Component {
     }
   }
 
+  componentDidUpdate(){
 
-
-  //Your code here
-
-
-
-  componentDidMount() {
-    this.interval = setInterval(this.clockTick, this.props.updateInterval*1000)
   }
 
-  componentWillUnmount() {
-    clearInterval(this.interval)
+  componentDidMount(){
+    this.interval = setInterval(this.clockTick, this.props.theUpdateInterval*1000)
   }
+
+  componentWillUnmount(){clearInterval(this.interval)}
 
   render() {
     const { time, color, className, logText } = this.state
@@ -39,12 +35,7 @@ class Timer extends Component {
     );
   }
 
-
-  clockTick = () => {
-    this.setState(prevState => ({
-      time: prevState.time + this.props.updateInterval
-    }))
-  }
+  clockTick =()=>this.setState(prevState=>{time: prevState.time + this.props.theUpdateInterval})
 
   stopClock = () => {
     clearInterval(this.interval)
@@ -52,10 +43,7 @@ class Timer extends Component {
   }
 
   // for the 'x' button,
-  handleClose = () => {
-    this.props.removeTimer(this.props.id)
-  }
-
+  handleClose =()=>this.props.removeTimer(this.props.id)
 
 }
 
