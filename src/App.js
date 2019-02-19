@@ -14,7 +14,7 @@ class App extends Component {
   // As soon as it mounts, add one timerID object to the timerID array
   componentDidMount() {this.handleAddTimer()}
 
-  // Controls takes updateIntervalSetting, handleUpdateInterval, and handleAddTimer
+  // Controls takes updateIntervalSetting, theUpdateInterval, and handleAddTimer
   render() {
     console.log(this.state.timerIDs);
     return (
@@ -39,7 +39,7 @@ class App extends Component {
   handleAddTimer = () => {
     this.setState(prevState => ({
       timerIDs: [
-        // Spread the the members of the prevState's timerIDs array
+        // Spread the members of the prevState's timerIDs array
         // Note that we're calling the previous state "prevState,"" but often you see it called just "state"
         ...prevState.timerIDs,
         // and add one more
