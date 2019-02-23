@@ -4,7 +4,7 @@ class Timer extends Component {
 
   constructor() {
     super()
-    this.timer = React.createRef()
+    this.timer = React.createRef() //allows us to access this sections dom
     this.state = {
         time: 0,
         color: '#'+Math.floor(Math.random()*16777215).toString(16),
@@ -13,8 +13,17 @@ class Timer extends Component {
 
 
 
-  //Your code here
+  componentDidUpdate() { //called after every component rerender
+    this.timer.current.style.color =
+    "#" + Math.floor(Math.random() * 16777215).toString(16);
+  }
 
+  shouldComponentUpdate(nextProps, nextState) { //fires just before component commits to updating
+      if (this.state.time === nextState.time) {
+        return false
+      }
+      return true //component will only update if this returns true
+    }
 
 
   componentDidMount() {
