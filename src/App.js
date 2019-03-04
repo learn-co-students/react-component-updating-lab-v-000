@@ -9,11 +9,14 @@ class App extends Component {
   state = {
     updateInterval: 1,
     timerIDs: []
+    
   }
 
   componentDidMount() {
     this.handleAddTimer()
   }
+  
+
 
   render() {
     console.log(this.state.timerIDs);
