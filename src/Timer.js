@@ -1,3 +1,6 @@
+// import React, { PureComponent } from 'react';
+// class Timer extends PureComponent {
+
 import React, { Component } from 'react';
 
 class Timer extends Component {
