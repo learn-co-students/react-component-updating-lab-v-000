@@ -14,7 +14,20 @@ class Timer extends Component {
 
 
   //Your code here
+	shouldComponentUpdate(nextProps, nextState) {
+		if (nextState === this.timer.current) {
+			return false
+		}
+		return true
+	}
 
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		if (prevState === this.timer) {
+			return false
+		}
+		return true
+	}
+	
 
 
   componentDidMount() {
