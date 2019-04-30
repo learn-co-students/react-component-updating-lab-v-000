@@ -35,10 +35,9 @@ class Timer extends Component {
 
   render() {
     const { time, color, className, logText } = this.state
-    
+
     return (
       <section className="Timer" style={{background: color}} ref={this.timer}>
-        // double brackets an object
         <h1>{ time }</h1>
         <button onClick={ this.stopClock }>Stop</button>
         <aside className="logText">{ logText }</aside>
