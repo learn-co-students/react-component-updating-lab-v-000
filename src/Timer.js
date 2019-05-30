@@ -7,14 +7,23 @@ class Timer extends Component {
     this.timer = React.createRef()
     this.state = {
         time: 0,
-        color: '#'+Math.floor(Math.random()*16777215).toString(16),
+        color: '',
     }
   }
 
 
 
   //Your code here
+  componentDidUpdate() {
+    this.state.color = '#'+Math.floor(Math.random()*16777215).toString(16)
+  }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.time === nextState.time) {
+      return false
+    }
+    return true
+  }
 
 
   componentDidMount() {
@@ -28,7 +37,10 @@ class Timer extends Component {
   render() {
     const { time, color, className, logText } = this.state
     return (
-      <section className="Timer" style={{background: color}} ref={this.timer}>
+      <section 
+       className="Timer" 
+       style={{background: color}} 
+       ref={this.timer}>
 
         <h1>{ time }</h1>
         <button onClick={ this.stopClock }>Stop</button>
