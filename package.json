@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "expect": "^23.4.0",
+    "missing": "0.0.1",
     "mocha-multi": "^1.0.1",
     "react": "^16.4.1",
     "react-animations": "^1.0.0",
