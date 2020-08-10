@@ -10,7 +10,27 @@ class Timer extends Component {
     };
   }
 
-  //Your code here
+  //Your code here.
+  // The shouldComponentUpdate method fires just before a component commits to updating. 
+  // If true is returned from the method, the component will update.
+  // This method provides both the current and the next props/state.
+  // In regards to the Timer component updating, the only time we really need to update 
+    // is when this.state.time changes. Including this code prevents unnecessary updates being 
+    // caused by App's state changes. The result is that the DOM changes you've made in 
+    // componentDidUpdate will only take effect when a Timer increments.
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.time === nextState.time) {
+      return false
+    }
+    return true
+  }
+
+  componentDidUpdate() {
+    this.timer.current.style.color = '#'+Math.floor(Math.random()*16777215).toString(16)
+    this.timer.current.style.width = 240+this.state.time*5/1000+"px"
+    this.timer.current.style.height = 150+this.state.time*5/1000+"px"
+  }
 
   componentDidMount() {
     this.interval = setInterval(
@@ -19,6 +39,7 @@ class Timer extends Component {
     );
   }
 
+  // This method below clears the stage:
   componentWillUnmount() {
     clearInterval(this.interval);
   }
