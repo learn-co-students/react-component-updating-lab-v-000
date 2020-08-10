@@ -1,3 +1,9 @@
+Tests passing: 
+ 
+  <Timer />
+    ✓ calls componentDidUpdate
+    ✓ calls shouldComponentUpdate
+
 # React: Component Mounting and Unmounting
 
 ## Objectives
