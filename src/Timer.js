@@ -11,7 +11,7 @@ class Timer extends Component {
   }
 
   //Your code here
-
+  //will fire the clockTick function, every 1 x updateInterval secs. componentDidMount fires just before render. Everytime ther is  a state change, render happens?
   componentDidMount() {
     this.interval = setInterval(
       this.clockTick,
@@ -19,10 +19,22 @@ class Timer extends Component {
     );
   }
 
+  componentDidUpdate(){
+    this.timer.current.style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    if (this.state.time === nextState.time) {
+    return false
+    }
+    return true
+  }
+
   componentWillUnmount() {
     clearInterval(this.interval);
   }
 
+//where does logText come from?
   render() {
     const { time, color, logText } = this.state;
     return (
@@ -35,7 +47,9 @@ class Timer extends Component {
     );
   }
 
+//passed down the updateInterval props in the renderTimers fn within the parent App. Mutates the state value of time - important
   clockTick = () => {
+    //console.log(this.timer.current)
     this.setState(prevState => ({
       time: prevState.time + this.props.updateInterval
     }));

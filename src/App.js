@@ -16,7 +16,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.timerIDs);
     return (
       <div className="App">
         <header>
@@ -32,6 +31,7 @@ class App extends Component {
   }
 
   // returns array of components written in JSX, mapped from this.state.timerIDs
+  //updateInterval props takes in the updateInterval property from App state which is being iterated on in the map. That is chaged by updateInterval Setting function below
   renderTimers = () => this.state.timerIDs.map(({id, updateInterval}) => <Timer key={id} id={id} removeTimer={this.removeTimer} updateInterval={updateInterval}/>)
 
 
@@ -49,6 +49,7 @@ class App extends Component {
   }
 
   // removeTimer updates state, removing any timer that matches the provided author
+  //why use prevState? WHy not this.state? you want to affect the value of before setState was called. Since setState does batching, its sometimes important to know what the previous state was when you want to update the new state based on the previous state value.
   removeTimer = id => {
     this.setState(prevState => ({
       timerIDs: prevState.timerIDs.filter(timer => timer.id !== id)
