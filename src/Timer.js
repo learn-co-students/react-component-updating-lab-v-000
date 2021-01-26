@@ -23,6 +23,7 @@ class Timer extends Component {
   }
 
   componentDidMount() {
+    console.log(this.timer.current.style.background);
     this.interval = setInterval(
       this.clockTick,
       this.props.updateInterval * 1000
