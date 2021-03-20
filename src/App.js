@@ -3,6 +3,12 @@ import React, { Component } from 'react';
 import Timer from './Timer'
 import Controls from './Controls'
 
+// import React, { PureComponent } from 'react';
+ 
+// class Timer extends PureComponent {
+//   ...
+// }
+
 //no need to modify anything in this component
 class App extends Component {
 
