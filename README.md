@@ -81,9 +81,9 @@ Once the Timer component mounts, it is possible to access the DOM node,
 `this.timer`, we just need to write `this.timer` followed by `current`:
 
 ```js
-console.log(this.timer.current);
+// console.log(this.timer.current);
 //outputs <section class="Timer" ... > ... </section>
-console.log(this.timer.current.style.background);
+// console.log(this.timer.current.style.background);
 //outputs the background color, something like rgb(62, 132, 219)
 ```
 
